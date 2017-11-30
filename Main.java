@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class NumbersConsole {
+public class Main {
 
     private static String ttyConfig;
 
