@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Role{
+public class Character{
 
 	private String name;
 	private String role;
@@ -14,9 +14,9 @@ public class Role{
 	private int wis;
 	private int cha;
         
-        public Role(){}
+        public Character(){}
 
-	public Role(int x, int y, int z, int a){		
+	public Character(int x, int y, int z, int a){		
 		
 		switch(x){
 			case 1: role = "wizard";
