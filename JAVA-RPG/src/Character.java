@@ -14,53 +14,43 @@ public class Character{
 	private int wis;
 	private int cha;
         
+        private static int int_max = 75;
+        
         public Character(){}
 
-	public Character(int x, int y, int z, int a){		
+	public Character(int x){		
 		
 		switch(x){
 			case 1: role = "wizard";
 					break;
 			
+		
 		}
-		switch(y){
-			case 1: race = "human";
-					break;
-		}
-		switch(z){
-			case 1: alignment = "lawful";
-					break;
-		}
-		switch(z){
-			case 1: gender = "male";
-					break;
-		}
-                initialize(race);
-
-
-
+                initialize(role);
 	}
 
-	private void initialize(String race){
-            if(race.equals("human")){
-                int int_max = 75;
+	private void initialize(String x){
+            if(role.equals("wizard")){
+                
+                int input;
                 Scanner assign = new Scanner(System.in);
                 System.out.println("Please assign your strength attribute point.");
-                str = Exception(assign.nextByte(),18);
+                
+                str = Exception(assign.nextByte(),18,int_max);
                 System.out.println("Please assign your dexterity attribute point.");
-                dex = Exception(assign.nextByte(),18);
+                dex = Exception(assign.nextByte(),18,int_max);
                 System.out.println("Please assign your constitution attribute point.");
-                cons = Exception(assign.nextByte(),18);
+                cons = Exception(assign.nextByte(),16,int_max);
                 System.out.println("Please assign your intelligence attribute point.");
-                intel = Exception(assign.nextByte(),18);
+                intel = Exception(assign.nextByte(),20,int_max);
                 System.out.println("Please assign your wisdom attribute point.");
-                wis = Exception(assign.nextByte(),18);
+                wis = Exception(assign.nextByte(),20,int_max);
                 System.out.println("Please assign your charisma attribute point.");
-                cha = Exception(assign.nextByte(),18);
+                cha = Exception(assign.nextByte(),18,int_max);
                         } 
 	}
         
-        private int Exception(int input, int expect){
+        private int Exception(int input, int expect, int sub){
             while(true)
                 {if(input > expect){
                     Scanner in = new Scanner(System.in);
@@ -69,7 +59,12 @@ public class Character{
                     input = in.nextByte();
                  
             }
-            else{return input;}}
+                else if(sub - input < 0){
+                 System.out.println("Your don't have enough stats, try again.");
+                }
+            else{   sub = sub - input;
+                            System.out.println(sub);
+                    return input;}}
         }           
 }
 
